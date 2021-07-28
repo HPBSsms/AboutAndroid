@@ -3,6 +3,8 @@ package com.view.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,4 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void bt1(View view) {
+        Toast.makeText(this, "ViewPager", Toast.LENGTH_SHORT).show();
+    }
 }
