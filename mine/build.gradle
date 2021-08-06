@@ -1,5 +1,7 @@
-plugins {
-    id 'com.android.library'
+if (!isNeedMineModule.toBoolean()) {
+    apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
 }
 
 android {
@@ -7,6 +9,9 @@ android {
     buildToolsVersion "31.0.0"
 
     defaultConfig {
+        if (!isNeedMineModule.toBoolean()) {
+            applicationId "com.example.module_mine"
+        }
         minSdkVersion 19
         targetSdkVersion 31
         versionCode 1
@@ -14,6 +19,11 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
     }
 
     buildTypes {
@@ -35,4 +45,9 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    implementation 'com.alibaba:arouter-api:1.4.1'
+    annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
+
+    implementation project(':commonlib')
 }

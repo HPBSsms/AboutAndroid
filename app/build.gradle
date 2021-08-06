@@ -22,6 +22,11 @@ android {
                 arguments = [AROUTER_MODULE_NAME: project.getName()]
             }
         }
+//        javaCompileOptions {
+//            annotationProcessorOptions {
+//                arguments = [ moduleName : project.getName() ]
+//            }
+//        }
     }
 
     buildTypes {
@@ -52,5 +57,18 @@ dependencies {
     annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
 
     implementation project(':commonlib')
+
+    if (isNeedHomeModule.toBoolean()) {
+        implementation project(':home')
+    }
+    if (isNeedFindModule.toBoolean()) {
+        implementation project(':find')
+    }
+    if (isNeedChatModule.toBoolean()) {
+        implementation project(':chat')
+    }
+    if (isNeedMineModule.toBoolean()) {
+        implementation project(':mine')
+    }
 
 }
