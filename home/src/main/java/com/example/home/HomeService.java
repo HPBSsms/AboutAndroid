@@ -3,8 +3,9 @@ package com.example.home;
 import android.content.Context;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.example.commonlib.utils.RoutePath;
 
-@Route(path = "/home/HomeService", name = "测试服务")
+@Route(path = RoutePath.PATH_HOME_SERVICE, name = "测试服务")
 public class HomeService implements HomeExportService {
     @Override
     public String sayHello(String s) {

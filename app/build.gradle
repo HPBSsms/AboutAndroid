@@ -53,6 +53,8 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 //    implementation rootProject.ext.dependencies["appcompat-v7"]
 
+    implementation 'com.blankj:utilcode:1.23.7'
+
     implementation 'com.alibaba:arouter-api:1.4.1'
     annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
 

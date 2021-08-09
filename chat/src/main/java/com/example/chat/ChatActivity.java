@@ -10,8 +10,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.example.commonlib.utils.RoutePath;
 
-@Route(path = "/chat/test")
+@Route(path = RoutePath.PATH_CHAT)
 public class ChatActivity extends AppCompatActivity {
 
     @Autowired
