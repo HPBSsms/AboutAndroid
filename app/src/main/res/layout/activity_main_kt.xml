@@ -3,6 +3,38 @@
 
     <data>
 
+        <import type="java.util.List" />
+
+        <import type="java.util.Map" />
+
+        <variable
+            name="handler"
+            type="com.view.myapplication.kotlin.util.MyHandlers" />
+
+        <variable
+            name="task"
+            type="com.view.myapplication.kotlin.util.Task" />
+
+        <variable
+            name="presenter"
+            type="com.view.myapplication.kotlin.util.Presenter" />
+
+        <variable
+            name="list"
+            type="List&lt;String>" />
+
+        <variable
+            name="map"
+            type="Map&lt;String, String>" />
+
+        <variable
+            name="index"
+            type="int" />
+
+        <variable
+            name="key"
+            type="String" />
+
         <variable
             name="user"
             type="com.view.myapplication.kotlin.data.User" />
@@ -13,16 +45,65 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <EditText
+            android:id="@+id/et"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:hint="请输入"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <Button
             android:id="@+id/bt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:onClick="bt1"
-            android:text='@{user.firstName + " " + user.lastName}'
+            android:text="@{user.firstName + `, ` + user.lastName}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/et" />
+
+        <TextView
+            android:id="@+id/tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="textview"
+            android:text='@{et.text}'
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bt" />
+
+        <TextView
+            android:id="@+id/tv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:hint="textview"
+            android:onClick="@{handler::onclickFriend}"
+            android:text='handler::onclickFriend'
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv" />
+
+        <TextView
+            android:id="@+id/tv3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:hint="textview"
+            android:onClick="@{() -> presenter.onSaveClick(task)}"
+            android:text='presenter.onSaveClick(task)'
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv2" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

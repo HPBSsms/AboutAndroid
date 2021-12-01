@@ -8,6 +8,8 @@ import androidx.databinding.DataBindingUtil
 import com.view.myapplication.R
 import com.view.myapplication.databinding.ActivityMainKtBinding
 import com.view.myapplication.kotlin.data.User
+import com.view.myapplication.kotlin.util.MyHandlers
+import com.view.myapplication.kotlin.util.Presenter
 
 class MainActivity : AppCompatActivity() {
     private val activityMainKtBinding: ActivityMainKtBinding
@@ -21,7 +23,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding: ActivityMainKtBinding =
             activityMainKtBinding
-        binding.user = User("Smith", "Kuc")
+        binding.user = User(null, "Kuc")
+        binding.handler = MyHandlers()
+        binding.presenter = Presenter()
     }
 
     fun bt1(view: View) {
